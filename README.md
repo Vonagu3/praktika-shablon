@@ -96,7 +96,7 @@ git push -u origin визитка-имя
    ```
    Затем `git add .`, `git commit -m "Неделя 1: имя"`, `git push -u origin неделя1-имя` и PR.
 3. **Участник 1** сливает свой PR первым (после Approve напарника).
-4. У **Участника 2** GitHub пишет «This branch has conflicts». **Решаем не в браузере, а у себя:**
+4. В PR **Участник 2** GitHub пишет «This branch has conflicts». **Решаем не в браузере, а у себя:**
    ```
    git pull origin main
    ```

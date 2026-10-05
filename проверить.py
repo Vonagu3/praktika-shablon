@@ -23,6 +23,9 @@ except (AttributeError, ValueError):
 ПАПКА = Path(__file__).resolve().parent
 MAIN = "origin/main"
 ЗАГЛУШКА = "(впишите)"
+# Собраны из частей, чтобы замена имён во всех файлах (миссия 0, Replace All) не задела сам скрипт.
+УЧАСТНИК_1 = "Участ" + "ник 1"
+УЧАСТНИК_2 = "Участ" + "ник 2"
 
 # Куда отправлять итог: тот же сервер, что у тренажёра (www.irtuganov.pro/git-2107/).
 СЕРВЕР = "https://hpmidxaovjlcjlitqjvl.supabase.co/rest/v1/rpc/git_submit"
@@ -101,8 +104,8 @@ def шаг_1():
     визитка = файл_в_main("визитка.md")
     if not визитка:
         raise НеПройдено("В main на GitHub нет файла визитка.md — это точно репозиторий пары?")
-    if "Участник 1" in визитка or "Участник 2" in визитка:
-        raise НеПройдено("Имена ещё не вписаны. Владелец: Ctrl/Cmd+Shift+H, заменить «Участник 1» и «Участник 2», затем add, commit, push.")
+    if УЧАСТНИК_1 in визитка or УЧАСТНИК_2 in визитка:
+        raise НеПройдено(f"Имена ещё не вписаны. Владелец: Ctrl/Cmd+Shift+H, заменить «{УЧАСТНИК_1}» и «{УЧАСТНИК_2}», затем add, commit, push.")
     return origin.removesuffix(".git").rsplit("/", 1)[-1]
 
 
